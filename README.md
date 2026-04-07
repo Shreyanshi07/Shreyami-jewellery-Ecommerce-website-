@@ -1,4 +1,4 @@
-# Shreyami Jewellery - -Commerce UI
+# Shreyami Jewellery - Ecommerce UI
 
 A minimalist, high-end e-commerce web application designed for a luxury jewelry brand. This project focuses on a seamless user experience, responsive design, and dynamic client-side logic.
 
