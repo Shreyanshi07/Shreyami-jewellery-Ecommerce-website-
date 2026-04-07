@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta ````````````````````````````````````````````````charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style - Shreyami Jewellery</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+<!-- Header with icons -->
+
+<header class="header">
+<div class="icons">
+<!--account-->
+<div class="user-dropdown">
+    <i class="fa fa-user" onclick="toggleUserMenu(event)" style="cursor: pointer;"></i>
+    
+    <div id="userMenu" class="user-menu-content">
+        <div class="user-profile-header">
+            <img src="https://ui-avatars.com/api/?name=Shreya&background=d4af37&color=fff" alt="User" class="avatar-img">
+            <div class="user-text">
+                <h3 id="displayUserName">Guest</h3>
+                
+            </div>
+        </div>
+           <ul class="menu-list">
+    <li><a href="javascript:void(0)" onclick="openDashboard('wishlist')"><i class="fa-regular fa-heart"></i> My Wishlist</a></li>
+    
+    <li><a href="javascript:void(0)" onclick="openDashboard('orders')"><i class="fa-solid fa-bag-shopping"></i> Order History</a></li>
+    
+    <li><a href="javascript:void(0)" onclick="openDashboard('settings')"><i class="fa-solid fa-gear"></i> Settings</a></li>
+    
+    <li class="logout-item"><a href="#" onclick="logoutUser()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+</ul>
+    </div>
+</div>
+
+
+<!--cart-->
+
+<div class="cart-container" style="position: relative; display: inline-block;">
+    <div class="cart-icon" onclick="toggleCart(event)">
+        <i class="fa fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+    <div id="cartPopup" class="cart-popup">
+        <h3>Your Gallery</h3>
+        <ul id="cart-items">
+            </ul>
+        <div class="subtotal">
+            <span>Total</span>
+            <span id="cart-total">₹0</span>
+        </div>
+        <button class="checkout-btn" onclick="processCheckout()">Proceed to Checkout</button>
+    </div>
+</div>
+</div>
+</header>
+
+<!-- Brand name -->
+
+<section class="brand">
+
+<h1>SHREYAMI</h1>
+<p class="tagline">Timeless Jewellery Collection</p>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search jewellery..." onkeyup="searchProduct()">
+    <button onclick="searchProduct()"><i class="fa fa-search"></i></button>
+</div>
+
+</section>
+ 
+<!-- nevigation baar -->
+<nav class="navbar">
+
+<ul>
+<li ><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li class="active"><a href="style.html">Style</a></li>
+<li><a href="collection.html">Collection</a></li>
+</ul>
+
+</nav>
+
+<div class="style-container">
+      <div class="style-card" onclick="showSection('office')">
+        <img src="images/Office.webp" alt="Office Wear">
+        <div class="label">Office Wear</div>
+    </div>
+
+      <div class="style-card" onclick="showSection('daily')">
+        <img src="images/Daily.webp" alt="Daily Wear">
+        <div class="label">Daily Wear</div>
+    </div>
+
+      <div class="style-card" onclick="showSection('party')">
+        <img src="images/party.webp" alt="Party Wear">
+        <div class="label">Party Wear</div>
+    </div>
+</div>
+<!--lightbox zoom effect on image -->
+   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Zoomed Product">
+</div>
+
+<!--sections --> 
+
+<div id="office-section" class="detail-section">
+    <h2>Office Wear</h2>
+    <p>Subtle elegance for the modern professional.</p>
+    
+
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-image" onclick="openLightbox(this)">
+                <img src="images/bracelate2.jpg" alt="Gold Ring">
+                     <button class="wish-btn" onclick="addToWishlist('Stack of bracelate',1200,'images/bracelate2.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                <button class="buy-btn" onclick="addToCart('Stack of bracelate',1200,'images/bracelate2.jpg')">Add to Cart</button>
+            </div>
+            <h3>Stack of bracelate</h3>
+            <p class="price">₹1,200</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" onclick="openLightbox(this)">
+                <img src="images/bracelate1.jpg" alt="Pearl Earrings">
+                <button class="wish-btn" onclick="addToWishlist('Casual Solitaire Bracelate', 1800,'images/bracelate1.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Casual Solitaire Bracelate',1800,'images/bracelate1.jpg')">Add to Cart</button>
+            </div>
+            <h3>Casual Solitaire Bracelate</h3>
+            <p class="price">₹1,800</p>
+        </div>
+
+        <div class="product-card"onclick="openLightbox(this)">
+            <div class="product-image">
+                <img src="images/ring3.jpg" alt="Silver Necklace">
+                <button class="wish-btn" onclick="addToWishlist('Golden Rings',1500,'images/ring3.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Golden Rings',1500,'images/ring3.jpg')">Add to Cart</button>
+            </div>
+            <h3>Golden Rings</h3>
+            <p class="price">3,800</p>
+        </div>
+
+        <div class="product-card"onclick="openLightbox(this)">
+            <div class="product-image">
+                <img src="images/earing2.webp" alt="Diamond Studs">
+                     <button class="wish-btn" onclick="addToWishlist('Basic Golden Hoops',1000,'images/earing2.webp')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Basic Golden Hoops',1000,'images/earing2.webp')">Add to Cart</button>
+            </div>
+            <h3>Basic Golden Hoops</h3>
+            <p class="price">₹1,000</p>
+        </div>
+    </div>
+    
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Gallery</button>
+</div>
+<!--daily  section-->
+<div id="daily-section" class="detail-section">
+    <h2>Daily Wear</h2>
+    
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-image" onclick="openLightbox(this)">
+                <img src="images/partnecklace3.avif" alt="Gold Ring">
+                     <button class="wish-btn" onclick="addToWishlist('Minimalist Diamond necklace',2000,'images/partnecklace3.avif')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Minimalist Diamond necklace',2000,'images/partnecklace3.avif')">Add to Cart</button>
+            </div>
+            <h3>Minimalist Diamond necklace</h3>
+            <p class="price">₹2,000</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" onclick="openLightbox(this)">
+                <img src="images/earing3.jpg" alt="Pearl Earrings">
+                     <button class="wish-btn" onclick="addToWishlist('Gold Hoop Earrings',1500,'images/earing3.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Gold Hoop Earrings',1500,'images/earing3.jpg')">Add to Cart</button>
+            </div>
+            <h3>Gold Hoop Earrings</h3>
+            <p class="price">₹1,500</p>
+        </div>
+
+        <div class="product-card"onclick="openLightbox(this)">
+            <div class="product-image">
+                <img src="images/necklace4.jpg" alt="Silver Necklace">
+                     <button class="wish-btn" onclick="addToWishlist('golden Chain with Pendant',1800,'images/necklace4.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('golden Chain with Pendant',1800,'images/necklace4.jpg')">Add to Cart</button>
+            </div>
+            <h3>Golden Chain with Pendant</h3>
+            <p class="price">1,800</p>
+        </div>
+
+        <div class="product-card"onclick="openLightbox(this)">
+            <div class="product-image">
+                <img src="images/earing4.jpg" alt="Diamond Studs">
+                     <button class="wish-btn" onclick="addToWishlist('Golden Chain Earring',1500,'images/earing4.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Golden Chain Earring',1500,'images/earing4.jpg')">Add to Cart</button>
+            </div>
+            <h3>Golden Chain Earring</h3>
+            <p class="price">₹15,00</p>
+        </div>
+    </div>
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Gallery</button>
+</div>
+    <!--party  section-->
+<div id="party-section" class="detail-section">
+    <h2>party Wear</h2>
+    
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-image" onclick="openLightbox(this)">
+                <img src="images/partyring1.jpg" alt="Gold Ring">
+                     <button class="wish-btn" onclick="addToWishlist('Minimalist Diamond Ring',1500,'images/partyring1.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Minimalist Diamond Ring',1500,'images/partyring1.jpg')">Add to Cart</button>
+            </div>
+            <h3>Minimalist Diamond Ring</h3>
+            <p class="price">₹1,500</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" onclick="openLightbox(this)">
+                <img src="images/partynecklace1.jpg" alt="Pearl Earrings">
+                     <button class="wish-btn" onclick="addToWishlist('Infinit Pendant Neclace',2500,'images/partynecklace1.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Infinit Pendant Neclace',2500,'images/partynecklace1.jpg')">Add to Cart</button>
+            </div>
+            <h3>Infinit Pendant Neclace</h3>
+            <p class="price">₹2,500</p>
+        </div>
+
+        <div class="product-card"onclick="openLightbox(this)">
+            <div class="product-image">
+                <img src="images/partybracelate1.jpg" alt="Silver Necklace">
+                     <button class="wish-btn" onclick="addToWishlist('Lotus Gold Bracelate',1000,'images/partybracelate1.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Lotus Gold Bracelate',1000,'images/partybracelate1.jpg')">Add to Cart</button>
+            </div>
+            <h3>Lotus Gold Bracelate</h3>
+            <p class="price">1,000</p>
+        </div>
+
+        <div class="product-card"onclick="openLightbox(this)">
+            <div class="product-image">
+                <img src="images/partnecklace2.jpg" alt="Diamond Studs">
+                     <button class="wish-btn" onclick="addToWishlist('Pure Diamond Necklace',12000,'images/partnecklace2.jpg')">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+                 <button class="buy-btn" onclick="addToCart('Pure Diamond Necklace',12000,'images/partnecklace2.jpg')">Add to Cart</button>
+            </div>
+            <h3>Pure Diamond Necklace </h3>
+            <p class="price">₹12,000</p>
+        </div>
+  
+</div>
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Gallery</button>
+</div>
+
+
+<!--login -->
+<div id="authModal" class="modal">
+    <div class="modal-content auth-box">
+        <span class="close-auth" onclick="closeAuth()">&times;</span>
+        
+        <div id="loginForm">
+            <h2 class="playfair">Login</h2>
+            <p class="montserrat">Welcome back to Shreyami</p>
+            <form onsubmit="handleAuth(event, 'login')">
+                <input type="email" id="loginEmail" placeholder="Email Address" required>
+                <input type="password" id="loginPass" placeholder="Password" required>
+                <button type="submit" class="auth-btn">Sign In</button>
+            </form>
+            <p class="switch-text">New here? <span onclick="toggleAuth()">Create Account</span></p>
+        </div>
+
+        <div id="signupForm" style="display: none;">
+            <h2 class="playfair">Create Account</h2>
+            <p class="montserrat">Join the world of Shreyami</p>
+            <form onsubmit="handleAuth(event, 'signup')">
+                <input type="text" id="signupName" placeholder="Full Name" required>
+                <input type="email" id="signupEmail" placeholder="Email Address" required>
+                <input type="password" id="signupPass" placeholder="Password" required>
+                <button type="submit" class="auth-btn">Register</button>
+            </form>
+            <p class="switch-text">Already have an account? <span onclick="toggleAuth()">Login</span></p>
+        </div>
+    </div>
+</div>
+<!--profile button whishlist -->
+<div id="wishlistModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('wishlistModal')">&times;</span>
+        <h2><i class="fa-regular fa-heart"></i> My Wishlist</h2>
+        <div id="wishlistItems" class="modal-body">
+            <p>Your wishlist is currently empty.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ordersModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('ordersModal')">&times;</span>
+        <h2><i class="fa-solid fa-bag-shopping"></i> Order History</h2>
+        <div id="ordersList" class="modal-body">
+            <p>No orders placed yet.</p>
+        </div>
+    </div>
+</div>
+
+<section id="userDashboard" style="display:none; padding: 50px 10%; background: #fffaf5; border-top: 1px solid #d4af37;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 id="dashboardTitle" style="font-family: 'Playfair Display', serif;">My whishlist</h2>
+        <button onclick="closeDashboard()" style="background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
+    </div>
+    <hr style="border: 0.5px solid #eee; margin: 20px 0;">
+    
+    <div id="dashboardContent">
+        </div>
+</section>
+
+<!--footer -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2 class="logo-text">SHREYAMI</h2>
+             <p>Elegant Jewellery for Every Occasion</p>
+            <p>
+                Crafting timeless elegance since 2026. Our jewelry is designed for the modern woman who values tradition and minimalism.
+            </p>
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Pinterest</a>
+            </div>
+        </div>
+
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Best Sellers</a></li>
+                <li><a href="#">Shipping Policy</a></li>
+                <li><a href="#">Track Order</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section contact">
+            <h3>Contact Us</h3>
+            <p>Email: support@shreyami.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Location: Indore, India</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2026 Shreyami Jewellery | Designed with ❤️
+    </div>
+</footer>
+
+<!--thank you pop up -->
+<div id="thankYouModal" class="modal">
+    <div class="modal-content thank-you-content">
+        <div class="success-icon">✦</div>
+        <h2 id="thankYouName">Thank You</h2>
+        <p>Your selection from Shreyami Jewellery is being prepared.</p>
+        <div class="order-summary-box">
+            <p>A confirmation has been sent to your email.</p>
+        </div>
+        <button class="checkout-btn" onclick="closeThankYou()">Continue Shopping</button>
+    </div>
+</div>
+
+
+<!-- javAscript -->
+<script>
+
+// for sections 
+
+    function showSection(sectionId) {
+       
+        const sections = document.querySelectorAll('.detail-section');
+        sections.forEach(sec => sec.classList.remove('active'));
+
+      
+        const target = document.getElementById(sectionId + '-section');
+        target.classList.add('active');
+
+        target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+
+
+
+</script>
+<script src="script.js"></script>
+</body>
+</html>

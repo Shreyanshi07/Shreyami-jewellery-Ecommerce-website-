@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About - Shreyami Jewellery</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+<!-- Header with icons -->
+
+<header class="header">
+<div class="icons">
+<!--account-->
+<div class="user-dropdown">
+    <i class="fa fa-user" onclick="toggleUserMenu(event)" style="cursor: pointer;"></i>
+    
+    <div id="userMenu" class="user-menu-content">
+        <div class="user-profile-header">
+            <img src="https://ui-avatars.com/api/?name=Shreya&background=d4af37&color=fff" alt="User" class="avatar-img">
+            <div class="user-text">
+                <h3 id="displayUserName">Guest</h3>
+                
+            </div>
+        </div>
+           <ul class="menu-list">
+    <li><a href="javascript:void(0)" onclick="openDashboard('wishlist')"><i class="fa-regular fa-heart"></i> My Wishlist</a></li>
+    
+    <li><a href="javascript:void(0)" onclick="openDashboard('orders')"><i class="fa-solid fa-bag-shopping"></i> Order History</a></li>
+    
+    <li><a href="javascript:void(0)" onclick="openDashboard('settings')"><i class="fa-solid fa-gear"></i> Settings</a></li>
+    
+    <li class="logout-item"><a href="#" onclick="logoutUser()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+</ul>
+    </div>
+</div>
+
+
+
+<!--cart-->
+
+<div class="cart-container" style="position: relative; display: inline-block;">
+    <div class="cart-icon" onclick="toggleCart(event)">
+        <i class="fa fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+    <div id="cartPopup" class="cart-popup">
+        <h3>Your Gallery</h3>
+        <ul id="cart-items">
+            </ul>
+        <div class="subtotal">
+            <span>Total</span>
+            <span id="cart-total">₹0</span>
+        </div>
+        <button class="checkout-btn" onclick="processCheckout()">Proceed to Checkout</button>
+    </div>
+</div>
+</div>
+
+</header>
+
+
+<!-- Brand name -->
+
+<section class="brand">
+
+<h1>SHREYAMI</h1>
+<p class="tagline">Timeless Jewellery Collection</p>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search jewellery..." onkeyup="searchProduct()">
+    <button onclick="searchProduct()"><i class="fa fa-search"></i></button>
+</div>
+
+</section>
+ 
+<!-- nevigation baar -->
+<nav class="navbar">
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li class="active"><a href="about.html">About</a></li>
+<li><a href="style.html">Style</a></li>
+<li><a href="collection.html">Collection</a></li>
+</ul>
+
+</nav>
+
+
+<main class="about-page">
+    <section class="about-hero">
+        <div class="hero-content">
+            <span class="subtitle">ESTABLISHED 2026</span>
+            <h1>The Shreyami Story</h1>
+            <div class="divider"></div>
+        </div>
+    </section>
+
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="content-box">
+                <h2>Our Philosophy</h2>
+                <p>
+                    At <strong>Shreyami</strong>, we believe that jewelry is more than just an accessory—it is a reflection of your inner light. Founded with a vision to merge <strong>traditional craftsmanship</strong> with <strong>modern minimalism</strong>, every piece we create tells a story of elegance and strength.
+                </p>
+                <p>
+                    We don't just sell jewelry; we craft "forever pieces" that transition seamlessly from a high-stakes boardroom meeting to a quiet evening dinner.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-grid">
+        <div class="story-row">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800" alt="Craftsmanship">
+            </div>
+            <div class="story-text">
+                <h3>Purity in Design</h3>
+                <p>We specialize in 9KT Fine Gold and ethically sourced Silver. Our design process starts with a single pencil sketch, focusing on symmetry and the way light interacts with metal. We believe "less is more," allowing the quality of the materials to speak for themselves.</p>
+            </div>
+        </div>
+
+       <div class="story-row reverse">
+        <div class="story-image">
+        <img src="https://www.lordsjewels.com/cdn/shop/files/SN074-5_grande.png?v=1768387090" alt="Minimalist Gold Earrings">
+        </div>
+        <div class="story-text">
+            <h3>Master Craftsmanship</h3>
+            <p>Every piece at Shreyami is a result of hours of meticulous labor. Our artisans combine age-old techniques with modern technology to ensure that every curve is perfect and every gemstone is secure. Quality isn't just a goal; it's our standard.</p>
+        </div>
+    </div>
+    </section>
+
+    <section class="mission-section">
+    <div class="mission-container">
+        <span class="mission-tag">Our Mission</span>
+        <h2>Empowering Your Daily Radiance</h2>
+        <p class="mission-text">
+            Our mission is to redefine luxury by making it an accessible part of every woman's daily life. We strive to create jewelry that doesn't just sit in a box for special occasions, but serves as a constant reminder of your own strength and elegance. 
+        </p>
+        
+        <div class="mission-values">
+            <div class="value-item">
+                <h3>Ethical Sourcing</h3>
+                <p>Ensuring every stone and metal is obtained responsibly.</p>
+            </div>
+            <div class="value-item">
+                <h3>Timeless Design</h3>
+                <p>Creating pieces that transcend trends and last a lifetime.</p>
+            </div>
+            <div class="value-item">
+                <h3>Radical Quality</h3>
+                <p>Setting the gold standard in craftsmanship and durability.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<!--profile button whishlist -->
+<div id="wishlistModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('wishlistModal')">&times;</span>
+        <h2><i class="fa-regular fa-heart"></i> My Wishlist</h2>
+        <div id="wishlistItems" class="modal-body">
+            <p>Your wishlist is currently empty.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ordersModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('ordersModal')">&times;</span>
+        <h2><i class="fa-solid fa-bag-shopping"></i> Order History</h2>
+        <div id="ordersList" class="modal-body">
+            <p>No orders placed yet.</p>
+        </div>
+    </div>
+</div>
+
+<section id="userDashboard" style="display:none; padding: 50px 10%; background: #fffaf5; border-top: 1px solid #d4af37;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 id="dashboardTitle" style="font-family: 'Playfair Display', serif;">My whishlist</h2>
+        <button onclick="closeDashboard()" style="background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
+    </div>
+    <hr style="border: 0.5px solid #eee; margin: 20px 0;">
+    
+    <div id="dashboardContent">
+        </div>
+</section>
+
+
+<!--footer -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2 class="logo-text">SHREYAMI</h2>
+             <p>Elegant Jewellery for Every Occasion</p>
+            <p>
+                Crafting timeless elegance since 2026. Our jewelry is designed for the modern woman who values tradition and minimalism.
+            </p>
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Pinterest</a>
+            </div>
+        </div>
+
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Best Sellers</a></li>
+                <li><a href="#">Shipping Policy</a></li>
+                <li><a href="#">Track Order</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section contact">
+            <h3>Contact Us</h3>
+            <p>Email: support@shreyami.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Location: Indore, India</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2026 Shreyami Jewellery | Designed with ❤️
+    </div>
+</footer>
+
+<!--thank you pop up -->
+<div id="thankYouModal" class="modal">
+    <div class="modal-content thank-you-content">
+        <div class="success-icon">✦</div>
+        <h2 id="thankYouName">Thank You</h2>
+        <p>Your selection from Shreyami Jewellery is being prepared.</p>
+        <div class="order-summary-box">
+            <p>A confirmation has been sent to your email.</p>
+        </div>
+        <button class="checkout-btn" onclick="closeThankYou()">Continue Shopping</button>
+    </div>
+</div>
+
+<!-- javAscript -->
+<script>
+let total = 0;
+let cartCount = 0;
+
+function addToCart(product, price){
+
+cartCount++;
+total += price;
+
+document.getElementById("cart-count").innerText = cartCount;
+document.getElementById("total").innerText = total;
+
+let li = document.createElement("li");
+
+li.innerHTML = product + " - ₹" + price + 
+" <button onclick='removeItem(this,"+price+")'>Remove</button>";
+
+document.getElementById("cart-items").appendChild(li);
+
+}
+
+function removeItem(button, price){
+
+button.parentElement.remove();
+
+cartCount--;
+total -= price;
+
+document.getElementById("cart-count").innerText = cartCount;
+document.getElementById("total").innerText = total;
+
+}
+
+function searchProduct(){
+
+let input = document.getElementById("search").value.toLowerCase();
+let products = document.querySelectorAll(".product");
+
+products.forEach(function(product){
+
+let name = product.innerText.toLowerCase();
+
+if(name.includes(input)){
+product.style.display = "block";
+}else{
+product.style.display = "none";
+}
+
+});
+
+}
+
+</script>
+<script src="script.js"></script>
+</body>
+</html>
